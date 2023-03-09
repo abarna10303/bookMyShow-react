@@ -8,7 +8,11 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import Logo from '../assets/images/bookmyshow.png'
+import Logo from '../assets/images/bookmyshow.png';
+import Button from '@mui/material/Button';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Link from '@mui/material/Link';
+import './Header.css';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -57,9 +61,17 @@ const Header = () => {
   return (
     <>
      <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{backgroundColor:"#808080"}}>
+      <AppBar position="static" style={{backgroundColor:"#000",opacity:0.8}}>
         <Toolbar>
-          <img src={Logo} alt='logo' height={'50px'} width={'100px'}/>
+        <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: 'none', sm: 'block' } }}
+          >
+            <img src={Logo} alt='logo' height={'60px'} width={'60%'}/>
+          </Typography>
+         
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -70,6 +82,10 @@ const Header = () => {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
+          {"Chennai"}
+          <ArrowDropDownIcon />
+          <Button variant="contained" color="error" style={{textTransform:'none'}} sx={{mr:2,ml:2,pt:0,pb:0}}>Sign in</Button>
+
           <IconButton
             size="large"
             edge="start"
@@ -82,7 +98,25 @@ const Header = () => {
         </Toolbar>
       </AppBar>
     </Box>
-
+    <Box sx={{ flexGrow: 1, pt:1,pb:1}} style={{backgroundColor:'black',opacity:0.85}}>
+      <div className='navigation-container'>
+        <div>
+        <Link href="#">Movies</Link>
+        <Link href="#">Stream</Link>
+        <Link href="#">Events</Link>
+        <Link href="#">Plays</Link>
+        <Link href="#">Sports</Link>
+        <Link href="#">Activites</Link>
+        <Link href="#">Buzz</Link>
+        </div>
+        <div>
+        <Link href="#">ListYourShow</Link>
+        <Link href="#">Corporates</Link>
+        <Link href="#">Offers</Link>
+        <Link href="#">Gift Cards</Link>
+        </div>
+      </div>
+    </Box>
     </>
   )
 }
