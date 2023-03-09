@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import Logo from '../assets/images/bookmyshow.png';
 import Button from '@mui/material/Button';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Link from '@mui/material/Link';
@@ -69,7 +68,7 @@ const Header = () => {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            <img src={Logo} alt='logo' height={'60px'} width={'60%'}/>
+            <img src={'https://in.bmscdn.com/webin/common/icons/logo.svg'} alt='logo' height={'60px'} width={'60%'}/>
           </Typography>
          
           <Search>
@@ -100,17 +99,17 @@ const Header = () => {
     </Box>
     <Box sx={{ flexGrow: 1, pt:1,pb:1}} style={{backgroundColor:'black',opacity:0.85}}>
       <div className='navigation-container'>
-        <div>
+        <div className='watch-list'>
         <Link href="#">Movies</Link>
-        <Link href="#">Stream</Link>
+        <Link href="#" className='new'>Stream</Link>
         <Link href="#">Events</Link>
         <Link href="#">Plays</Link>
         <Link href="#">Sports</Link>
         <Link href="#">Activites</Link>
         <Link href="#">Buzz</Link>
         </div>
-        <div>
-        <Link href="#">ListYourShow</Link>
+        <div className='offers'>
+        <Link href="#" className='new'>ListYourShow</Link>
         <Link href="#">Corporates</Link>
         <Link href="#">Offers</Link>
         <Link href="#">Gift Cards</Link>

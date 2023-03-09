@@ -7,7 +7,29 @@
 }
 a{
     text-decoration: none !important;
-    color: white !important;
-    font-size: 14px;
+    font-size: 15px !important;
     margin-right: 15px !important;
 } 
+.new
+{
+    position: relative;
+}
+.new::before{
+    content: "NEW";
+    font-size: 9px;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    top:-8px;
+    right:-15px;
+}
+.watch-list a
+{
+    color: rgb(255, 251, 251,0.8);
+}
+.watch-list a:hover{
+    color: white;
+}
+.offers a{
+    color: white !important;
+}
