@@ -1,0 +1,24 @@
+.banner-container
+{
+    width: 90%;
+    margin: 3rem auto;
+}
+.banner-title{
+    display: flex;
+    justify-content: space-between;
+}
+.banner-title a:hover{
+    color: red;
+}
+
+.card-section{
+    width:90%;
+}
+.card-img img{
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+} 
+.see-all-btn{
+    margin-right: 2px !important;
+}

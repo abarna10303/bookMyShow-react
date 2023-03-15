@@ -1,16 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+import Banner from '../src/Banner/Banner';
+import Theater from './Theater/Theater';
+import Ceat from './Ceat/Ceat';
+import { BrowserRouter ,Routes,Route} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Popup from './Popup/Popup';
 function App() {
+  const state=useSelector(({counter})=>counter);
   return (
     <>
-     <Header />
-     <Footer />
-    </>
-   
+     <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Banner />}></Route>
+        <Route path='/gotoTheater' element={<Theater />}></Route>
+        <Route path='/slectSeats' element={<Popup />}></Route>
+        <Route path='/seatsAvailability' element={<Ceat />}></Route>
+      </Routes>
+     </BrowserRouter>
+    </>  
   );
 }
 
