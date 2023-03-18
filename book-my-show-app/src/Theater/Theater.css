@@ -93,10 +93,18 @@
     width: auto;
 }
 .cinema i{
-    font-size: 28px;
+    font-size: 25px;
 }
 .cinema{
     font-size: 14px;
+}
+.cinema p
+{
+    margin-bottom: 0px;
+}
+.cinema h5{
+    font-size: 14px;
+    margin: 1rem 0rem;
 }
 .la-hamburger{
     font-size: 20px !important;

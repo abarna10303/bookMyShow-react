@@ -1,36 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
-import { useRef } from "react";
+// import { useRef } from "react";
 import "./ceat.css";
+import { useState } from "react";
+
+let count=0;
 const Ceat = () => {
   let array=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
   let row = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J","K","L","M","N","O","P"];
   const state = useSelector(({ counter }) => counter);
-  const [seatStorage,setseatStorage]=useState([]);
-  let count=0;
-  const refe = useRef(null);
+  // Seat Disabled
+   
+   let [seatSouldOut,setSeatSouldOut]=useState([]);
   const changeBackground = (e) => {
- 
+    let seats=seatSouldOut;
     let active=document.getElementById(e);
     if(count<state.tickets && !active.classList.contains("changebg1"))
     {
-      active.classList.add("changebg1");
-      // setseatStorage([...seatStorage,e]);
-      count++;
-      localStorage.setItem(`seat${e}`,`${e}`);
-     
+        active.classList.add("changebg1");
+        count+=1;
+        seats.push(`${e}`);
+        setSeatSouldOut(seats);
     }
     else if(active.classList.contains("changebg1"))
-    {
-      active.classList.remove("changebg1");
-      count--;
-      localStorage.removeItem(`seat${e}`,`${e}`);
-    }
-    console.log(localStorage.getItem(`seat${e}`));
+      {
+        active.classList.remove("changebg1");
+        count--;
+        seats.splice(e,1);
+      } 
   };
-  const handlingPayNow=(e)=>{
-    
+  const handlingPayNow=(e)=>{ 
+    for(var j=0;j<seatSouldOut.length;j++)
+    {
+      localStorage.setItem(`${state.movieName+state.theater+state.showTime}seats${seatSouldOut[j]}`,
+      `${state.movieName+state.theater+state.showTime+seatSouldOut[j]}`);
+    } 
   }
   return (
     <section>
@@ -39,8 +44,8 @@ const Ceat = () => {
           <div>
             <span>{state.movieName}</span>
             <p style={{ marginBottom: "0px" }}>
-              Anand Theatre Madhuranthagam RGB LASER 4k | Tomorrow, 11 Mar,
-              11:30 AM
+              {state.theater} | Tomorrow, 11 Mar,
+              {state.showTime}
             </p>
           </div>
           <div>
@@ -67,14 +72,22 @@ const Ceat = () => {
                 <div className="ceat">
                   {array.map((value2, index2) => {
                     return (
+                      ((localStorage.getItem(`${state.movieName+state.theater+state.showTime}seats${value1+value2}`))===(state.movieName+state.theater+state.showTime+value1+value2)?
                       <button
-                        className="ceat-no seat-left-gap"
+                        className="ceat-no seat-left-gap diabled"
                         id={value1+value2}
                         onClick={(e,index2) => changeBackground(e.target.id)}
                         key={index2}
-                      >
+                        disabled>
                         {value2}
-                      </button>
+                      </button>:<button
+                      className="ceat-no seat-left-gap"
+                      id={value1+value2}
+                      onClick={(e,index2) => changeBackground(e.target.id)}
+                      key={index2}
+                      >
+                      {value2}
+                    </button>)
                     );
                   })}
                 </div>      
@@ -108,7 +121,7 @@ const Ceat = () => {
                 sx={{ mr: 2, ml: 2 }}
                 onClick={(e)=>handlingPayNow(e)}
              >
-                Pay Rs.380.00
+                Pay Rs.{190.00*state.tickets}
               </Button>
             </div>
           </div>

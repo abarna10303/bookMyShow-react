@@ -1,0 +1,147 @@
+[{
+    "movieName": "Akilan",
+    "theaterList":[
+        {
+            "theatername":"AGS Cinemas T Nagar",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"PVR Sathyam Cinemas Anna Nagar",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Anna Cinemas Anna Saalai",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Mayajaal Multiplex Kanathur",
+            "showTime": ["2.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"IMAX Velachery",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Vaathi",
+    "theaterList":[
+        {
+            "theatername":"AGS Cinemas T Nagar",
+            "showTime": ["10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Jazz Cinemas LUXE",
+            "showTime": ["10.30 AM", "2.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Ganapathy Ram Theater Adayar",
+            "showTime": ["6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Jothi Theater Alandur",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"IMAX Velachery",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Dada",
+    "theaterList":[
+        {
+            "theatername":"AGS Cinemas T Nagar",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Jazz Cinemas LUXE",
+            "showTime": [ "6.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Ganapathy Ram Theater Adayar",
+            "showTime": ["10.30 AM", "2.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Mayajaal Multiplex Kanathur",
+            "showTime": ["10.30 AM", "6.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"IMAX Velachery",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Tu Jhoothi Main Makkaar",
+    "theaterList":[
+        {
+            "theatername":"AGS Cinemas T Nagar",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"PVR Sathyam Cinemas Anna Nagar",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Anna Cinemas Anna Saalai",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Mayajaal Multiplex Kanathur",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"IMAX Velachery",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Ayothi",
+    "theaterList":[
+        {
+            "theatername":"AGS Cinemas T Nagar",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"PVR Sathyam Cinemas Anna Nagar",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Anna Cinemas Anna Saalai",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Mayajaal Multiplex Kanathur",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"IMAX Velachery",
+            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+}
+]

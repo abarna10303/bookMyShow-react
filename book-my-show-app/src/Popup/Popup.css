@@ -12,6 +12,10 @@
 .booking-btn:focus{
     outline-color: #f84464;
 }
+.booking-btn:hover{
+    background-color: #f84464;
+    color: white;
+}
 .selectAmont{
     margin: 5px 15px;
     text-align: center;

@@ -4,11 +4,13 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import theater from '../THEATER_DATA.json';
 import { styled } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-
+import { useDispatch } from "react-redux";
+import { setTheater,setShowTime } from "../features/counter/counterSlice";
+console.log(theater[0].theaterList[0].theatername);
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -19,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Theater = () => {
 const state=useSelector(({counter})=>counter);
-// const dispatch=useDispatch();
+ const dispatch=useDispatch();
   const navigate = useNavigate();
   console.log(state.movieName);
   const seatsHandle = () => {
@@ -27,9 +29,9 @@ const state=useSelector(({counter})=>counter);
   };
 
   const currentDate = new Date();
-
+  var movieTime=new Date().toLocaleTimeString();
+  console.log(movieTime);
   var day = currentDate.getDay();
-
   var date = currentDate.getDate();
   var month = currentDate.getMonth();
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -98,7 +100,10 @@ const state=useSelector(({counter})=>counter);
         </div>
       </div>
       <Grid style={{ background: "#f2f2f2", padding: "20px 0" }}>
-        <Grid
+        {theater.map((movies,index)=>{
+          return(
+            (theater[index].movieName===state.movieName?(<div key={index}>
+            <Grid
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -106,6 +111,7 @@ const state=useSelector(({counter})=>counter);
             background: "#fff",
             width: "98%",
             margin: "auto",
+            
           }}
         >
           <Grid style={{ width: "75%" }}></Grid>
@@ -129,13 +135,18 @@ const state=useSelector(({counter})=>counter);
             <div>SUBTITLES LANGUAGE</div>
           </Grid>
         </Grid>
-        <Grid
+        {theater[index].theaterList.map((value2,index2)=>{
+          return(
+            <div key={index2}> 
+            <Grid
           style={{
             display: "flex",
             background: "#fff",
             width: "98%",
             margin: "auto",
             borderTop: "1px solid #cccccc",
+            padding:'10px 0px',
+            
           }}
         >
           <Grid className="cinema_cont">
@@ -150,8 +161,8 @@ const state=useSelector(({counter})=>counter);
               <i className="bi bi-heart-fill"></i>
             </Grid>
             <Grid className="cinema">
-              <h5>AGS Cinemas: Maduravoyal</h5>
-              <Grid container spacing={2}>
+              <h5>{theater[index].theaterList[index2].theatername}</h5>
+              <Grid container spacing={2} >
                 <Grid>
                   <div
                     style={{
@@ -162,7 +173,7 @@ const state=useSelector(({counter})=>counter);
                     }}
                   >
                     <div>
-                      <i className="las la-mobile"></i>
+                      <i className="bi bi-phone"></i>
                     </div>
                     <p>M-Ticket</p>
                   </div>
@@ -206,38 +217,28 @@ const state=useSelector(({counter})=>counter);
             className="cinema_timing"
             style={{ alignContent: "center" }}
           >
-            <Grid item xs={2}>
-              <Item onClick={seatsHandle} style={{ cursor: "pointer" }}>
-                <p>10.00 AM</p>
-                <p>4K DOLBY 7.1</p>
+           {theater[index].theaterList[index2].showTime.map((theList,theindex)=>{
+            return(
+              <Grid item xs={2} key={theindex} >
+              <Item onClick={()=>{
+                seatsHandle()
+                dispatch(setTheater(theater[index].theaterList[index2].theatername))
+                dispatch(setShowTime(theater[index].theaterList[index2].showTime[theindex]))
+              }} style={{ cursor: "pointer" }}>
+                <p>{theater[index].theaterList[index2].showTime[theindex]}</p>              
               </Item>
             </Grid>
-            <Grid item xs={2}>
-              <Item onClick={seatsHandle}>
-                <p>10.00 AM</p>
-                <p>4K DOLBY 7.1</p>
-              </Item>
-            </Grid>
-            <Grid item xs={2}>
-              <Item onClick={seatsHandle}>
-                <p>10.00 AM</p>
-                <p>4K DOLBY 7.1</p>
-              </Item>
-            </Grid>
-            <Grid item xs={2}>
-              <Item onClick={seatsHandle}>
-                <p>10.00 AM</p>
-                <p>4K DOLBY 7.1</p>
-              </Item>
-            </Grid>
-            <Grid item xs={2}>
-              <Item onClick={seatsHandle}>
-                <p>10.00 AM</p>
-                <p>4K DOLBY 7.1</p>
-              </Item>
-            </Grid>
+            )
+           })}
+            
           </Grid>
         </Grid>
+        </div>
+          )
+        })}
+        </div>):null)
+          )
+        })}
       </Grid>
       <Grid
         style={{

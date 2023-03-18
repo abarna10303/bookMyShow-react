@@ -3,6 +3,8 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState:{
     movieName:'',
+    theater:'',
+    showTime:'',
     tickets:0,
   },
   reducers: {
@@ -11,10 +13,16 @@ export const counterSlice = createSlice({
     },
     setTicket:(state,action)=>{
       state.tickets=action.payload;
+    },
+    setTheater:(state,action)=>{
+      state.theater=action.payload;
+    },
+    setShowTime:(state,action)=>{
+      state.showTime=action.payload;
     }
   }, 
 });
 
-export const { setMovieName,setTicket } = counterSlice.actions;
+export const { setMovieName,setTicket,setTheater,setShowTime } = counterSlice.actions;
 
 export default counterSlice.reducer;
