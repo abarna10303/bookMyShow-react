@@ -1,18 +1,22 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useRef } from "react";
 import "./ceat.css";
 import { useState } from "react";
-
-let count=0;
+import { useNavigate } from "react-router-dom";
+import { setSelectSeat } from "../features/counter/counterSlice";
 const Ceat = () => {
-  let array=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
-  let row = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J","K","L","M","N","O","P"];
+  let [count,setCount]=useState(0);
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
+  let array=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
+  let row = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J","K","L","M","N"];
+  let row1=["O","P"]
   const state = useSelector(({ counter }) => counter);
-  // Seat Disabled
-   
+  // Seat Disabled 
    let [seatSouldOut,setSeatSouldOut]=useState([]);
+  //  const [selectionSeat,setSelectionSeat]=useState([]);
   const changeBackground = (e) => {
     let seats=seatSouldOut;
     let active=document.getElementById(e);
@@ -20,6 +24,7 @@ const Ceat = () => {
     {
         active.classList.add("changebg1");
         count+=1;
+        setCount(count)
         seats.push(`${e}`);
         setSeatSouldOut(seats);
     }
@@ -27,15 +32,16 @@ const Ceat = () => {
       {
         active.classList.remove("changebg1");
         count--;
+        setCount(count)
         seats.splice(e,1);
       } 
   };
   const handlingPayNow=(e)=>{ 
-    for(var j=0;j<seatSouldOut.length;j++)
+    if(state.tickets==seatSouldOut.length)
     {
-      localStorage.setItem(`${state.movieName+state.theater+state.showTime}seats${seatSouldOut[j]}`,
-      `${state.movieName+state.theater+state.showTime+seatSouldOut[j]}`);
-    } 
+      dispatch(setSelectSeat(seatSouldOut));
+      navigate('/gotoPayment');
+    }
   }
   return (
     <section>
@@ -44,7 +50,7 @@ const Ceat = () => {
           <div>
             <span>{state.movieName}</span>
             <p style={{ marginBottom: "0px" }}>
-              {state.theater} | Tomorrow, 11 Mar,
+              {state.theater} | Today, ,
               {state.showTime}
             </p>
           </div>
@@ -61,13 +67,13 @@ const Ceat = () => {
             </Button>
           </div>
         </div>
-        <p>DIAMOUNT : </p>
+        <div className="ceats-rows" style={{borderBottom:'1px dotted gray'}}>DIAMONT : 190.00</div>
         <div className="ceats-rows">
         {row.map((value1, index1) => {
             return (
               <div className="ceat-row" key={index1}>
                 <div className="ceat">
-                  <div className="ceat-no seat-bottom-gap">{value1}</div>
+                  <div className="ceat-no2 seat-bottom-gap">{value1}</div>
                 </div>
                 <div className="ceat">
                   {array.map((value2, index2) => {
@@ -88,6 +94,30 @@ const Ceat = () => {
                       >
                       {value2}
                     </button>)
+                    );
+                  })}
+                </div>      
+              </div>
+            );
+          })}
+          {row1.map((row1, rindex1) => {
+            return (
+              <div className="ceat-row" key={rindex1}>
+                <div className="ceat">
+                  <div className="ceat-no2 seat-bottom-gap">{row1}</div>
+                </div>
+                <div className="ceat">
+                  {array.map((value2, index2) => {
+                    return (
+                      <button
+                      className="ceat-no seat-left-gap"
+                      id={row1+value2}
+                      onClick={(e) => changeBackground(e.target.id)}
+                      disabled
+                      key={index2}
+                      >
+                      {value2}
+                    </button>
                     );
                   })}
                 </div>      
@@ -121,7 +151,7 @@ const Ceat = () => {
                 sx={{ mr: 2, ml: 2 }}
                 onClick={(e)=>handlingPayNow(e)}
              >
-                Pay Rs.{190.00*state.tickets}
+                Pay Rs.{190.00*count}
               </Button>
             </div>
           </div>

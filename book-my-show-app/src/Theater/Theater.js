@@ -2,6 +2,7 @@ import React from "react";
 import "./Theater.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import movie from '../MOCK_DATA.json';
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import theater from '../THEATER_DATA.json';
@@ -10,7 +11,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setTheater,setShowTime } from "../features/counter/counterSlice";
-console.log(theater[0].theaterList[0].theatername);
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -21,6 +21,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Theater = () => {
 const state=useSelector(({counter})=>counter);
+var [general]=movie.filter((e)=>{
+  return state.movieName===e['movie_title'];
+})
  const dispatch=useDispatch();
   const navigate = useNavigate();
   console.log(state.movieName);
@@ -28,12 +31,13 @@ const state=useSelector(({counter})=>counter);
     navigate("/slectSeats");
   };
 
-  const currentDate = new Date();
   var movieTime=new Date().toLocaleTimeString();
   console.log(movieTime);
-  var day = currentDate.getDay();
-  var date = currentDate.getDate();
-  var month = currentDate.getMonth();
+  const toDay = new Date();
+  const tomorrow=new Date(toDay);
+  tomorrow.setDate(toDay.getDate()+1);
+  const dayAfter=new Date(toDay);
+  dayAfter.setDate(toDay.getDate()+2);
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const months = [
     "JAN",
@@ -49,7 +53,16 @@ const state=useSelector(({counter})=>counter);
     "NOV",
     "DEC",
   ];
-
+  var theaterLoop=theater.filter((e)=>{return e.movieName===state.movieName});
+  var theaterLoop1=theaterLoop[0].theaterList;
+var theaterLoop2=[];
+for(var i=0;i<theaterLoop1.length;i++)
+{
+theaterLoop2[i]=theaterLoop1[i].showTime;
+}
+  var currentTime=toDay.getHours();
+  var currentMin=toDay.getMinutes();
+  var timeWithMin=currentTime+"."+currentMin;
   return (
     <>
       <Header />
@@ -57,9 +70,7 @@ const state=useSelector(({counter})=>counter);
         <h1>{state.movieName} - Tamil</h1>
         <div className="thHead">
           <div className="cert">UA</div>
-          <div className="genre">Action</div>
-          <div className="genre">Drama</div>
-          <div className="genre">Thriller</div>
+          <div className="genre">{general['genre']}</div>
         </div>
       </div>
       <div className="theater_sticky">
@@ -68,19 +79,19 @@ const state=useSelector(({counter})=>counter);
             <i className="bi bi-chevron-left"></i>
           </div>
           <div className="date_month bgColor">
-            <p>{days[day]}</p>
-            <h3>{date}</h3>
-            <p>{months[month]}</p>
+            <p>{days[toDay.getDay()]}</p>
+            <h3>{toDay.getDate()}</h3>
+            <p>{months[toDay.getMonth()]}</p>
           </div>
           <div className="date_month">
-            <p>{days[day + 1]}</p>
-            <h3>{date + 1}</h3>
-            <p>{months[month]}</p>
+            <p>{days[tomorrow.getDay()]}</p>
+            <h3>{tomorrow.getDate()}</h3>
+            <p>{months[tomorrow.getMonth()]}</p>
           </div>
           <div className="date_month">
-            <p>{days[day + 2]}</p>
-            <h3>{date + 2}</h3>
-            <p>{months[month]}</p>
+            <p>{days[dayAfter.getDay()]}</p>
+            <h3>{dayAfter.getDate()}</h3>
+            <p>{months[dayAfter.getMonth()]}</p>
           </div>
           <div className="chevron">
             <i className="bi bi-chevron-right"></i>
@@ -100,9 +111,6 @@ const state=useSelector(({counter})=>counter);
         </div>
       </div>
       <Grid style={{ background: "#f2f2f2", padding: "20px 0" }}>
-        {theater.map((movies,index)=>{
-          return(
-            (theater[index].movieName===state.movieName?(<div key={index}>
             <Grid
           style={{
             display: "flex",
@@ -135,9 +143,9 @@ const state=useSelector(({counter})=>counter);
             <div>SUBTITLES LANGUAGE</div>
           </Grid>
         </Grid>
-        {theater[index].theaterList.map((value2,index2)=>{
+        {theaterLoop1.map((value,index)=>{
           return(
-            <div key={index2}> 
+            <div key={index}> 
             <Grid
           style={{
             display: "flex",
@@ -161,7 +169,7 @@ const state=useSelector(({counter})=>counter);
               <i className="bi bi-heart-fill"></i>
             </Grid>
             <Grid className="cinema">
-              <h5>{theater[index].theaterList[index2].theatername}</h5>
+              <h5>{value.theatername}</h5>
               <Grid container spacing={2} >
                 <Grid>
                   <div
@@ -206,7 +214,7 @@ const state=useSelector(({counter})=>counter);
                 opacity: 0.8,
                 padding: "0 20px 20px",
               }}
-            >
+            >  
               <i className="las la-info-circle"></i>
               INFO
             </Grid>
@@ -217,17 +225,18 @@ const state=useSelector(({counter})=>counter);
             className="cinema_timing"
             style={{ alignContent: "center" }}
           >
-           {theater[index].theaterList[index2].showTime.map((theList,theindex)=>{
-            return(
-              <Grid item xs={2} key={theindex} >
-              <Item onClick={()=>{
-                seatsHandle()
-                dispatch(setTheater(theater[index].theaterList[index2].theatername))
-                dispatch(setShowTime(theater[index].theaterList[index2].showTime[theindex]))
-              }} style={{ cursor: "pointer" }}>
-                <p>{theater[index].theaterList[index2].showTime[theindex]}</p>              
-              </Item>
-            </Grid>
+           {theaterLoop2[index].map((theList,theindex)=>{
+            return(          
+            theList?(parseInt(theList)>timeWithMin)?  <Grid item xs={2} key={theindex} >
+            <Item onClick={()=>{
+              seatsHandle()
+              dispatch(setTheater(value.theatername))
+              dispatch(setShowTime(value.showTime[theindex]))
+            }} style={{ cursor: "pointer" }}>
+              <p>{theList<12?((theList).toFixed(2)+"AM"):((theList-12).toFixed(2)+"PM")}</p>  
+              <p>{value.screen}</p>            
+            </Item>
+          </Grid>:(""):("")
             )
            })}
             
@@ -236,9 +245,7 @@ const state=useSelector(({counter})=>counter);
         </div>
           )
         })}
-        </div>):null)
-          )
-        })}
+         
       </Grid>
       <Grid
         style={{

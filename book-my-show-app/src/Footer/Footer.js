@@ -72,26 +72,26 @@ const Footer = () => {
           </div>
           <div className="social-icon">
             <div className="icon">
-              <i className="bi bi-facebook"></i>
+             <a href="https://www.facebook.com/BookMyShowIN"> <i className="bi bi-facebook"></i></a>
             </div>
             <div className="icon">
-              <i className="bi bi-twitter"></i>
-            </div>
-
-            <div className="icon">
-              <i className="bi bi-instagram"></i>
+            <a href="https://www.facebook.com/BookMyShowIN"> <i className="bi bi-twitter"></i></a>
             </div>
 
             <div className="icon">
-              <i className="bi bi-youtube"></i>
+            <a href="https://www.facebook.com/BookMyShowIN"> <i className="bi bi-instagram"></i></a>
             </div>
 
             <div className="icon">
-              <i className="bi bi-pinterest"></i>
+            <a href="https://www.facebook.com/BookMyShowIN"> <i className="bi bi-youtube"></i></a>
             </div>
 
             <div className="icon">
-              <i className="bi bi-linkedin"></i>
+            <a href="https://www.facebook.com/BookMyShowIN"> <i className="bi bi-pinterest"></i></a>
+            </div>
+
+            <div className="icon">
+            <a href="https://www.facebook.com/BookMyShowIN"> <i className="bi bi-linkedin"></i></a>
             </div>
           </div>
           <div className="copy-right">

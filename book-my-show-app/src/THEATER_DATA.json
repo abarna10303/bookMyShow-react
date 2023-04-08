@@ -3,27 +3,27 @@
     "theaterList":[
         {
             "theatername":"AGS Cinemas T Nagar",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM"],
+            "showTime": ["10.30", "14.30", "18.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"PVR Sathyam Cinemas Anna Nagar",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "showTime": ["10.30", "14.30", "22.30,00.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Anna Cinemas Anna Saalai",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "showTime": ["10.30", "14.30", "18.30", "22.30,24.00"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Mayajaal Multiplex Kanathur",
-            "showTime": ["2.30 PM", "10.30 PM"],
+            "showTime": ["14.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"IMAX Velachery",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         }
     ]
@@ -32,27 +32,27 @@
     "theaterList":[
         {
             "theatername":"AGS Cinemas T Nagar",
-            "showTime": ["10.30 PM"],
+            "showTime": ["22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Jazz Cinemas LUXE",
-            "showTime": ["10.30 AM", "2.30 PM", "10.30 PM"],
+            "showTime": ["10.30", "14.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Ganapathy Ram Theater Adayar",
-            "showTime": ["6.30 PM", "10.30 PM"],
+            "showTime": ["18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Jothi Theater Alandur",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"IMAX Velachery",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Krishnaveni Cinemas T Nagar",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         }
     ]
@@ -60,28 +60,28 @@
     "movieName": "Dada",
     "theaterList":[
         {
-            "theatername":"AGS Cinemas T Nagar",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Kasi Talkies",
+            "showTime": ["10.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Jazz Cinemas LUXE",
-            "showTime": [ "6.30 PM"],
+            "showTime": [ "18.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Ganapathy Ram Theater Adayar",
-            "showTime": ["10.30 AM", "2.30 PM"],
+            "showTime": ["10.30", "14.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Mayajaal Multiplex Kanathur",
-            "showTime": ["10.30 AM", "6.30 PM"],
+            "showTime": ["10.30", "18.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"IMAX Velachery",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"G K Cinemas",
+            "showTime": ["10.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         }
     ]
@@ -89,28 +89,28 @@
     "movieName": "Tu Jhoothi Main Makkaar",
     "theaterList":[
         {
-            "theatername":"AGS Cinemas T Nagar",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"G K Cinemas",
+            "showTime": ["7.30", "14.30", "18.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"PVR Sathyam Cinemas Anna Nagar",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "showTime": ["7.00", "18.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"Anna Cinemas Anna Saalai",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Woodlands Cinemas",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"Mayajaal Multiplex Kanathur",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Raj Theater",
+            "showTime": ["10.30", "14.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"IMAX Velachery",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Anna Cinema",
+            "showTime": [ "18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         }
     ]
@@ -118,28 +118,174 @@
     "movieName": "Ayothi",
     "theaterList":[
         {
-            "theatername":"AGS Cinemas T Nagar",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Kasi Talkies",
+            "showTime": ["14.30", "18.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"PVR Sathyam Cinemas Anna Nagar",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Raj Theater",
+            "showTime": ["18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"Anna Cinemas Anna Saalai",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Anna Cinema",
+            "showTime": ["10.30", "14.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"Mayajaal Multiplex Kanathur",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"Gokulam Cinemas",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
-            "theatername":"IMAX Velachery",
-            "showTime": ["10.30 AM", "2.30 PM", "6.30 PM", "10.30 PM"],
+            "theatername":"SB Cinemas",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},
+{
+    "movieName": "65",
+    "theaterList":[
+        {
+            "theatername":"Udhayam Cinemas",
+            "showTime": ["10.30", "14.30", "18.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Devi Cinemas",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Devi Kala Theater",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"INOX Cinemas",
+            "showTime": ["14.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Kumaran Cinemas",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Kondrall Paavam",
+    "theaterList":[
+        {
+            "theatername":"PVR SPI Palazzo Chennai",
+            "showTime": ["22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Janatha Theater",
+            "showTime": ["10.30", "14.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Sri Vigneshwara Theater",
+            "showTime": ["18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Rohini Silver Screens",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"National Theater",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Shazam! Fury of the Gods",
+    "theaterList":[
+        {
+            "theatername":"Albert Theatres",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"PVR Cinemas Skywalk",
+            "showTime": [ "18.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Sivasakthi Cinemas",
+            "showTime": ["10.30", "14.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Lakshmibala Theatre",
+            "showTime": ["10.30", "18.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Vetrivel Cinemas",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Scream VI",
+    "theaterList":[
+        {
+            "theatername":"Malliga Theatre",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"M.M Theatre",
+            "showTime": ["10.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Batcha Theatre",
+            "showTime": ["10.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"PVR Grand Mall Velachery",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Green Cinemas",
+            "showTime": ["22.30"],
+            "screen": "4k DOLBY 7.1"
+        }
+    ]
+},{
+    "movieName": "Demon Slayer: Kimetsu no Yaiba To The Swordsmith Village",
+    "theaterList":[
+        {
+            "theatername":"Casino Cinemas",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Remy Cinemas",
+            "showTime": ["18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Ega Theatre",
+            "showTime": ["10.30", "14.30", "18.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"IDream Cinemas",
+            "showTime": ["10.30", "14.30", "22.30"],
+            "screen": "4k DOLBY 7.1"
+        },
+        {
+            "theatername":"Velan Theatre",
+            "showTime": ["10.30", "14.30", "18.30"],
             "screen": "4k DOLBY 7.1"
         }
     ]

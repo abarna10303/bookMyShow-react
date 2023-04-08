@@ -18,7 +18,6 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setTicket } from "../features/counter/counterSlice";
-import { useSelector } from "react-redux";
 import "./Popup.css";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -62,9 +61,8 @@ BootstrapDialogTitle.propTypes = {
 
 export default function Popup() {
   const [open, setOpen] = React.useState(true);
-  const [buttons, setButtons] = React.useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const buttons= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [ticketCount,setTicketCount]=React.useState(0);
-  var popUpImg=document.getElementById('popupImg');
   const refe = useRef(null);
   const [imageSrc,setImageSrc]=React.useState(scooter);
   const navigate = useNavigate();
@@ -116,7 +114,8 @@ export default function Popup() {
       case '8'||'9'||'10':
         setImageSrc(van);
       break;
-      
+      default:
+      break
     }
   }
   return (
