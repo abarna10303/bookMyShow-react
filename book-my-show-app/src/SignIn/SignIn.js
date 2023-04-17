@@ -15,6 +15,9 @@ import { useDispatch } from "react-redux";
 import { setAutodication } from "../features/counter/counterSlice";
 import "./SignIn.css";
 import { useState } from "react";
+import { useEffect } from "react";
+import { onValue, ref, set } from "firebase/database";
+import { db } from "../Firsebase/Firebase";
 const theme = createTheme();
 
 export default function SignIn() {
@@ -25,6 +28,18 @@ export default function SignIn() {
   const [flag2, setFlag2] = useState(false);
   const [flag3, setFlag3] = useState(false);
   const [flag4, setFlag4] = useState(false);
+  const [userIds, setUserIds] = useState([]);
+  const [userDatas, setUserDatas] = useState([]);
+  useEffect(() => {
+    const getDetails = async () => {
+      await onValue(ref(db, "userDetails"), (getData) => {
+        const data = getData.val();
+        setUserIds(Object.keys(data));
+        setUserDatas(Object.values(data));
+      });
+    };
+    getDetails();
+  }, []);
   const handlingUserDetails = (e) => {
     if (e.target.name === "email") {
       setFlag1(false);
@@ -37,16 +52,12 @@ export default function SignIn() {
     }
   };
   const dispatch = useDispatch();
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    var userData = JSON.parse(localStorage.getItem("allObj"));
+    var userData = userDatas;
+    console.log(userDatas);
     const loginAthend = userData.some((e) => e.email === email);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
     var userFilter;
     if (loginAthend) {
       userFilter = userData.filter(
@@ -64,7 +75,6 @@ export default function SignIn() {
       ) {
         setFlag4(true);
       }
-      console.log(userFilter);
     } else {
       setFlag3(true);
     }
@@ -82,7 +92,6 @@ export default function SignIn() {
     ) {
       dispatch(setAutodication(true));
       navigate("/goToMovieCard");
-      console.log("hi");
     }
   };
   return (
@@ -103,12 +112,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required

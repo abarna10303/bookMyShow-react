@@ -8,12 +8,12 @@
         },
         {
             "theatername":"PVR Sathyam Cinemas Anna Nagar",
-            "showTime": ["10.30", "14.30", "22.30,00.30"],
+            "showTime": ["10.30", "14.30", "22.30","00.30"],
             "screen": "4k DOLBY 7.1"
         },
         {
             "theatername":"Anna Cinemas Anna Saalai",
-            "showTime": ["10.30", "14.30", "18.30", "22.30,24.00"],
+            "showTime": ["10.30", "14.30", "18.30", "22.30","24.00"],
             "screen": "4k DOLBY 7.1"
         },
         {

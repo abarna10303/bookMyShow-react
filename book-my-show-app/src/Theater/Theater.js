@@ -26,13 +26,9 @@ var [general]=movie.filter((e)=>{
 })
  const dispatch=useDispatch();
   const navigate = useNavigate();
-  console.log(state.movieName);
   const seatsHandle = () => {
     navigate("/slectSeats");
   };
-
-  var movieTime=new Date().toLocaleTimeString();
-  console.log(movieTime);
   const toDay = new Date();
   const tomorrow=new Date(toDay);
   tomorrow.setDate(toDay.getDate()+1);

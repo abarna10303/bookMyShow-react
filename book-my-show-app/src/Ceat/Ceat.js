@@ -6,43 +6,74 @@ import "./ceat.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setSelectSeat } from "../features/counter/counterSlice";
+import { useEffect } from "react";
+import { onValue,ref } from "firebase/database";
+import { db } from "../Firsebase/Firebase";
 const Ceat = () => {
-  let [count,setCount]=useState(0);
-  const navigate=useNavigate();
-  const dispatch=useDispatch();
-  let array=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
-  let row = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J","K","L","M","N"];
-  let row1=["O","P"]
+  let [count, setCount] = useState(0);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  let array = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22,
+  ];
+  let row = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+  ];
+  let row1 = ["O", "P"];
   const state = useSelector(({ counter }) => counter);
-  // Seat Disabled 
-   let [seatSouldOut,setSeatSouldOut]=useState([]);
+  const [bookedSeats,setBookedSeats]=useState([])
+  useEffect(()=>{
+    const getDetails=async()=>{
+      await onValue(ref(db,"seatBooking"),(getData)=>{
+        const data=getData.val();
+        if(data!==null)
+        {
+          setBookedSeats(Object.values(data));
+        }      
+      })
+    }
+    getDetails();
+  },[])
+  console.log(bookedSeats);
+  // Seat Disabled
+  let [seatSouldOut, setSeatSouldOut] = useState([]);
   //  const [selectionSeat,setSelectionSeat]=useState([]);
   const changeBackground = (e) => {
-    let seats=seatSouldOut;
-    let active=document.getElementById(e);
-    if(count<state.tickets && !active.classList.contains("changebg1"))
-    {
-        active.classList.add("changebg1");
-        count+=1;
-        setCount(count)
-        seats.push(`${e}`);
-        setSeatSouldOut(seats);
+    let seats = seatSouldOut;
+    let active = document.getElementById(e);
+    if (count < state.tickets && !active.classList.contains("changebg1")) {
+      active.classList.add("changebg1");
+      count += 1;
+      setCount(count);
+      seats.push(`${e}`);
+      setSeatSouldOut(seats);
+    } else if (active.classList.contains("changebg1")) {
+      active.classList.remove("changebg1");
+      count--;
+      setCount(count);
+      seats.splice(e, 1);
     }
-    else if(active.classList.contains("changebg1"))
-      {
-        active.classList.remove("changebg1");
-        count--;
-        setCount(count)
-        seats.splice(e,1);
-      } 
   };
-  const handlingPayNow=(e)=>{ 
-    if(state.tickets==seatSouldOut.length)
-    {
+  const handlingPayNow = (e) => {
+    if (state.tickets == seatSouldOut.length) {
       dispatch(setSelectSeat(seatSouldOut));
-      navigate('/gotoPayment');
+      navigate("/gotoPayment");
     }
-  }
+  };
   return (
     <section>
       <div className="ceat-container">
@@ -50,8 +81,7 @@ const Ceat = () => {
           <div>
             <span>{state.movieName}</span>
             <p style={{ marginBottom: "0px" }}>
-              {state.theater} | Today, ,
-              {state.showTime}
+              {state.theater} | Today, ,{state.showTime}
             </p>
           </div>
           <div>
@@ -67,9 +97,11 @@ const Ceat = () => {
             </Button>
           </div>
         </div>
-        <div className="ceats-rows" style={{borderBottom:'1px dotted gray'}}>DIAMONT : 190.00</div>
+        <div className="ceats-rows" style={{ borderBottom: "1px dotted gray" }}>
+          DIAMONT : 190.00
+        </div>
         <div className="ceats-rows">
-        {row.map((value1, index1) => {
+          {row.map((value1, index1) => {
             return (
               <div className="ceat-row" key={index1}>
                 <div className="ceat">
@@ -77,26 +109,33 @@ const Ceat = () => {
                 </div>
                 <div className="ceat">
                   {array.map((value2, index2) => {
-                    return (
-                      ((localStorage.getItem(`${state.movieName+state.theater+state.showTime}seats${value1+value2}`))===(state.movieName+state.theater+state.showTime+value1+value2)?
+                    return bookedSeats.find((cValue)=>cValue.bookingSeats ===
+                      state.movieName +
+                        state.theater +
+                        state.showTime +
+                        value1 +
+                        value2) ? (
                       <button
                         className="ceat-no seat-left-gap diabled"
-                        id={value1+value2}
-                        onClick={(e,index2) => changeBackground(e.target.id)}
+                        id={value1 + value2}
+                        onClick={(e, index2) => changeBackground(e.target.id)}
                         key={index2}
-                        disabled>
-                        {value2}
-                      </button>:<button
-                      className="ceat-no seat-left-gap"
-                      id={value1+value2}
-                      onClick={(e,index2) => changeBackground(e.target.id)}
-                      key={index2}
+                        disabled
                       >
-                      {value2}
-                    </button>)
+                        {value2}
+                      </button>
+                    ) : (
+                      <button
+                        className="ceat-no seat-left-gap"
+                        id={value1 + value2}
+                        onClick={(e, index2) => changeBackground(e.target.id)}
+                        key={index2}
+                      >
+                        {value2}
+                      </button>
                     );
                   })}
-                </div>      
+                </div>
               </div>
             );
           })}
@@ -110,17 +149,17 @@ const Ceat = () => {
                   {array.map((value2, index2) => {
                     return (
                       <button
-                      className="ceat-no seat-left-gap"
-                      id={row1+value2}
-                      onClick={(e) => changeBackground(e.target.id)}
-                      disabled
-                      key={index2}
+                        className="ceat-no seat-left-gap"
+                        id={row1 + value2}
+                        onClick={(e) => changeBackground(e.target.id)}
+                        disabled
+                        key={index2}
                       >
-                      {value2}
-                    </button>
+                        {value2}
+                      </button>
                     );
                   })}
-                </div>      
+                </div>
               </div>
             );
           })}
@@ -147,11 +186,11 @@ const Ceat = () => {
               </div>
               <Button
                 variant="contained"
-                style={{ textTransform: "none",backgroundColor:'#f84464' }}
+                style={{ textTransform: "none", backgroundColor: "#f84464" }}
                 sx={{ mr: 2, ml: 2 }}
-                onClick={(e)=>handlingPayNow(e)}
-             >
-                Pay Rs.{190.00*count}
+                onClick={(e) => handlingPayNow(e)}
+              >
+                Pay Rs.{190.0 * count}
               </Button>
             </div>
           </div>

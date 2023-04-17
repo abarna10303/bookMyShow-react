@@ -20,7 +20,6 @@ const Banner = () => {
   const navigateTheater=(value)=>{
     dispatch(setMovieName(value.target.title));
     navigate('/gotoTheater');
-    console.log(value.target.title);
   }
   return (
     <>
